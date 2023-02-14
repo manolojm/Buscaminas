@@ -30,6 +30,12 @@ public class Cell : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        onClick(id.x, id.y);
+        if (!GameManager.acabada) {
+            onClick(id.x, id.y);
+        }
+    }
+
+    public Boolean EsMina() {
+        return (mine);
     }
 }
