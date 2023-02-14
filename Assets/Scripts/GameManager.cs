@@ -31,7 +31,10 @@ public class GameManager : MonoBehaviour {
     private int numY;
     private int numMinas;
 
+    public Camera camara;
+
     void Start() {
+        //MatrizInstance();
     }
 
     void MatrizInstance() {
@@ -58,6 +61,7 @@ public class GameManager : MonoBehaviour {
 
     public void ComenzarPartida() {
         ObtenerValores();
+        AjustarCamara();
         MatrizInstance();
     }
 
@@ -166,6 +170,10 @@ public class GameManager : MonoBehaviour {
         if (!String.IsNullOrEmpty(inputMinas.text)) {
             numMinas = byte.Parse(inputMinas.text);
         }
+    }
+
+    void AjustarCamara() {
+        camara.transform.position = transform.position + new Vector3(0, 0, -1 - numY);
     }
 
     void FinJuego() {
